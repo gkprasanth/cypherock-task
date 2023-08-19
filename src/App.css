@@ -1,0 +1,7 @@
+.coins::-webkit-scrollbar {
+  display: none;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
