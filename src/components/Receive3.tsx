@@ -2,7 +2,7 @@ import { Box, Divider, Stack, Typography } from "@mui/material";
 import arrow2 from "../assets/arrow2.png";
 import modal from "../assets/modal.png";
 
-import modal1 from "../assets/modal1.png";
+
 const Receive3 = (props: any) => {
   return (
     <>

@@ -40,31 +40,59 @@ const Receive1 = (props: any) => {
         {instructions.map((i, index) => {
           return (
             <>
-              <Box
-                bgcolor={"#1c1f22"}
-                sx={{
-                  display: "flex",
-                  height: "68px",
-                  padding: "20px",
-                  gap: "20px",
-                  width: "70%",
-                  borderRadius: "10px",
-                }}
-              >
-                <img
-                  src={arrow2}
-                  width={"16px"}
-                  height={"16px"}
-                  style={{
-                    transform: "rotate(44deg)",
-                    position: "relative",
-                    top: "8px",
+              {complete ? (
+                <Box
+                  bgcolor={"#1c1f22"}
+                  sx={{
+                    display: "flex",
+                    height: "68px",
+                    padding: "20px",
+                    gap: "20px",
+                    width: "70%",
+                    borderRadius: "10px",
                   }}
-                />
-                <Typography key={index} color={"#8a8b90"} fontSize={"1.3rem"}>
-                  {i}
-                </Typography>
-              </Box>
+                >
+                  <img
+                    src={arrow2}
+                    width={"16px"}
+                    height={"16px"}
+                    style={{
+                      transform: "rotate(44deg)",
+                      position: "relative",
+                      top: "8px",
+                    }}
+                  />
+                  <Typography key={index} color={"#8a8b90"} fontSize={"1.3rem"}>
+                    {i}
+                  </Typography>
+                </Box>
+              ) : (
+                <Box
+                  bgcolor={"#1c1f22"}
+                  sx={{
+                    display: "flex",
+                    height: "68px",
+                    padding: "20px",
+                    gap: "20px",
+                    width: "70%",
+                    borderRadius: "10px",
+                  }}
+                >
+                  <img
+                    src={arrow2}
+                    width={"16px"}
+                    height={"16px"}
+                    style={{
+                      transform: "rotate(44deg)",
+                      position: "relative",
+                      top: "8px",
+                    }}
+                  />
+                  <Typography key={index} color={"#8a8b90"} fontSize={"1.3rem"}>
+                    {i}
+                  </Typography>
+                </Box>
+              )}
             </>
           );
         })}
