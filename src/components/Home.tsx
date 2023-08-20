@@ -14,6 +14,7 @@ import {
 import Sidebar from "./Sidebar";
 import check from "../assets/check.png";
 import lock from "../assets/lock.png";
+import circle from "../assets/home.png";
 import down from "../assets/down-arrow.png";
 import dual from "../assets/dual-arrows.png";
 import arrow1 from "../assets/arrow1.png";
@@ -35,7 +36,7 @@ import Header from "./Header";
 const steps = ["Device", "Verification", "Receive"];
 
 const Home = () => {
-  //Modal States & Events
+  //Modal States 
   const { isOpen, toggle } = useModal();
 
   const [activeStep, setActiveStep] = useState(0);
@@ -43,6 +44,8 @@ const Home = () => {
     [k: number]: boolean;
   }>({});
 
+
+  //Model Events
   const totalSteps = () => {
     return steps.length;
   };
@@ -94,7 +97,7 @@ const Home = () => {
   const [sort, setSort] = useState("Amount High - Low");
   const [dropDownDisplay, setDropdownDisplay] = useState(false);
 
-  //Coin Data Array
+   
 
   const coinData = [
     {
@@ -184,6 +187,12 @@ const Home = () => {
                   padding: "20px",
                 }}
               >
+
+
+
+                
+
+                {/**Header 2**/}
                 <Stack
                   direction={"row"}
                   alignItems={"center"}
@@ -206,13 +215,15 @@ const Home = () => {
                   <Box
                     bgcolor={"#1a212b"}
                     borderRadius={"5px"}
+                    padding={'5px'}
+                    paddingLeft={'8px'}
                     sx={{
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
                     }}
                   >
-                    <img src={lock} width={"45px"} height={"40px"} />
+                    <img src={circle} width={"30px"} height={"35px"} />
                   </Box>
                   <Box
                     bgcolor={"#1a212b"}
@@ -235,6 +246,12 @@ const Home = () => {
                   maxWidth: "80vw",
                 }}
               >
+
+
+
+
+
+                {/**Header 3**/}
                 <Stack
                   direction={"row"}
                   justifyContent={"space-between"}
@@ -266,6 +283,9 @@ const Home = () => {
                   </button>
                 </Stack>
 
+
+
+                    {/**COin Coint and Dropdown**/}
                 <Stack
                   direction={"row"}
                   justifyContent={"space-between"}
@@ -387,6 +407,10 @@ const Home = () => {
                   </Stack>
                 </Stack>
 
+
+
+
+              {/**  Coins Boxes  **/}
                 <Stack
                   mt={"40px"}
                   gap={"1rem"}
