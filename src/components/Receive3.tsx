@@ -1,9 +1,14 @@
 import { Box, Divider, Stack, Typography } from "@mui/material";
 import arrow2 from "../assets/arrow2.png";
 import modal from "../assets/modal.png";
-
+import copy from 'copy-to-clipboard';
 
 const Receive3 = (props: any) => {
+
+  const copyToClipboard = () => {
+    copy('25BKJNKNLJL58fjkdhfk26dnfds15')
+    alert(`You have copied 25BKJNKNLJL58fjkdhfk26dnfds15`);
+  }
   return (
     <>
       <Box
@@ -65,6 +70,7 @@ const Receive3 = (props: any) => {
               readOnly
             />
 
+             
             <button
               style={{
                 color: "#e7c49f",
@@ -78,25 +84,28 @@ const Receive3 = (props: any) => {
                 borderRadius: "10px",
                 position: "absolute",
                 cursor: "pointer",
-                bottom: "335px",
+                bottom: "322px",
                 right: "150px",
               }}
+
+              onClick={copyToClipboard}
             >
               Copy
             </button>
+             
           </Stack>
         </Stack>
         <Stack
           direction={"row"}
-          gap={'10px'}
+          gap={"10px"}
           sx={{
             position: "relative",
             top: "95px",
             left: "130px",
-            alignItems:'center'
+            alignItems: "center",
           }}
         >
-          <img src={modal} width={'27px'} />
+          <img src={modal} width={"27px"} />
           <Typography color={"#4848f6"}>address Verifyed</Typography>
         </Stack>
 
@@ -117,7 +126,10 @@ const Receive3 = (props: any) => {
               top: "200px",
               cursor: "pointer",
             }}
-            onClick={props.stepsCompleted}
+            onClick={() => {
+              props.stepsCompleted();
+              props.toggle();
+            }}
           >
             Re-Verify
           </button>

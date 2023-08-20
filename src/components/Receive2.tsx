@@ -1,7 +1,15 @@
+import { useState } from "react";
 import { Box, Divider, Stack, Typography } from "@mui/material";
-
 import arrow2 from "../assets/arrow2.png";
+import completed from "../assets/completed.png";
+
 const Receive2 = (props: any) => {
+  const [boxClicked, setBoxClicked] = useState(false);
+
+  const handleBoxClick = () => {
+    setBoxClicked(true);
+  };
+
   return (
     <>
       <Box
@@ -11,13 +19,12 @@ const Receive2 = (props: any) => {
           height: "40px",
           position: "absolute",
           top: "6px",
-          display:'flex',
-          justifyContent:'center',
-          alignItems:'center',
-          borderRadius:'50%',
-          cursor:'pointer'
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          borderRadius: "50%",
+          cursor: "pointer",
         }}
-
         onClick={props.handleBack}
       >
         <img
@@ -46,9 +53,15 @@ const Receive2 = (props: any) => {
             margin: "auto",
             position: "relative",
             top: "50px",
+            cursor: "pointer",
           }}
         >
-          <Typography color={"#e19a4c"} fontSize={"1.5rem"}>
+          <Typography
+            fontSize={"1.5rem"}
+            style={{
+              color: '#e19a4c',
+            }}
+          >
             25BKJNKNLJL58fjkdhfk26dnfds15
           </Typography>
         </Box>
@@ -66,6 +79,7 @@ const Receive2 = (props: any) => {
 
           <Box
             bgcolor={"#1c1f22"}
+            className="box"
             sx={{
               display: "flex",
               height: "68px",
@@ -74,6 +88,7 @@ const Receive2 = (props: any) => {
               width: "70%",
               borderRadius: "10px",
             }}
+            onClick={handleBoxClick}
           >
             <img
               src={arrow2}
@@ -85,9 +100,25 @@ const Receive2 = (props: any) => {
                 top: "6px",
               }}
             />
-            <Typography variant="body1" color={"#8a8b90"}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: boxClicked ? "#a4a9d6" : "#8a8b90",
+                cursor: 'pointer'
+              }}
+            >
               Please match the <strong>address</strong> to be shown in X1 wallet
             </Typography>
+
+            <img
+              src={completed}
+              width={"30px"}
+              style={{
+                position: "absolute",
+                right: "240px",
+                display: !boxClicked ? "none" : "block",
+              }}
+            />
           </Box>
         </Stack>
 
@@ -104,10 +135,11 @@ const Receive2 = (props: any) => {
 
           <button
             style={{
-              color: "#3e3935",
+              
               border: "1px solid #3e3935",
               width: "140px",
-              background: "none",
+              background: boxClicked ? "#8f602c" : "none",
+              color: boxClicked ? "#fff" : "#3e3935",
               fontSize: "1.2rem",
               height: "45px",
               justifyContent: "center",
@@ -115,9 +147,10 @@ const Receive2 = (props: any) => {
               borderRadius: "3px",
               position: "relative",
               left: "600px",
-              cursor: "pointer",
+              cursor: boxClicked ? "pointer" : "not-allowed",
             }}
             onClick={props.handleComplete}
+            disabled={!boxClicked}
           >
             {props.isEnd ? "Finish" : "Complete"}{" "}
           </button>

@@ -8,6 +8,9 @@ import {
   Stepper,
   StepLabel,
 } from "@mui/material";
+
+
+
 import Sidebar from "./Sidebar";
 import check from "../assets/check.png";
 import lock from "../assets/lock.png";
@@ -34,8 +37,6 @@ const steps = ["Device", "Verification", "Receive"];
 const Home = () => {
   //Modal States & Events
   const { isOpen, toggle } = useModal();
-
-  
 
   const [activeStep, setActiveStep] = useState(0);
   const [completed, setCompleted] = useState<{
@@ -72,16 +73,12 @@ const Home = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  
-
   const handleComplete = () => {
     const newCompleted = completed;
     newCompleted[activeStep] = true;
     setCompleted(newCompleted);
     handleNext();
   };
-
-
 
   const stepsCompleted = () => {
     handleComplete();
@@ -572,7 +569,7 @@ const Home = () => {
             <Step key={label} completed={completed[index]}>
               <StepLabel>
                 <Typography
-                  color={"#e19a4c"}
+                  color={completed[index] ? "#e19a4c" : "#fff"}
                   sx={{
                     fontWeight: "semi-bold",
                   }}
@@ -585,11 +582,23 @@ const Home = () => {
         </Stepper>
 
         {activeStep == 0 ? (
-          <Receive1 isEnd={isEnd} handleComplete={handleComplete} handleBack={handleBack}/>
+          <Receive1
+            isEnd={isEnd}
+            handleComplete={handleComplete}
+            handleBack={handleBack}
+          />
         ) : activeStep == 1 ? (
-          <Receive2 isEnd={isEnd} handleBack={handleBack} handleComplete={handleComplete} />
+          <Receive2
+            isEnd={isEnd}
+            handleBack={handleBack}
+            handleComplete={handleComplete}
+          />
         ) : (
-          <Receive3 stepsCompleted={stepsCompleted} handleBack={handleBack}/>
+          <Receive3
+            stepsCompleted={stepsCompleted}
+            handleBack={handleBack}
+            toggle={toggle}
+          />
         )}
       </ReceiveModal>
     </>
